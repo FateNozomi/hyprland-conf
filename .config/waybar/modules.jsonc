@@ -1,0 +1,203 @@
+{
+  // Workspaces
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{}",
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 3
+    }
+  },
+  // Hyprland Window
+  "hyprland/window": {
+    "separate-outputs": true
+  },
+  // Rofi Application Launcher
+  "custom/appmenu": {
+    "format": "Apps",
+    "on-click": "rofi -show drun -replace",
+    "tooltip": false
+  },
+  // Power Menu
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "tooltip-format": "Powermenu",
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/power_menu.xml",
+    "menu-actions": {
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "shutdown": "shutdown now"
+    }
+  },
+  // Keyboard State
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
+  // System tray
+  "tray": {
+    "icon-size": 15,
+    "spacing": 10
+  },
+  // Clock
+  "clock": {
+    // "timezone": "America/New_York",
+    "format": "/ {:%H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  // CPU
+  "cpu": {
+    "format": "/ C {usage}% ",
+    "on-click": "kitty -e htop"
+  },
+  // Memory
+  "memory": {
+    "format": "/ M {}% ",
+    "on-click": "kitty -e htop"
+  },
+  // Harddisc space used
+  "disk": {
+    "interval": 30,
+    "format": "D {percentage_used}% ",
+    "path": "/",
+    "on-click": "kitty -e htop"
+  },
+  "hyprland/language": {
+    "format": "/ K {short}"
+  },
+  // Group Hardware
+  "group/hardware": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "not-memory",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/system",
+      "disk",
+      "cpu",
+      "memory",
+      "hyprland/language"
+    ]
+  },
+  // Network
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "/  {signalStrength}%",
+    "format-ethernet": "/ 󰈀 {ipaddr}",
+    "format-disconnected": "/ Not connected", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddri}",
+    "tooltip-format-wifi": "  {essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "on-click": "kitty -e nmtui"
+  },
+  // Battery
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "/ {icon} {capacity}%",
+    "format-charging": "/ 󰂄 {capacity}%",
+    "format-plugged": "/  {capacity}%",
+    "format-alt": "/ {icon} {time}",
+    "format-icons": [
+      "󰂃",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  // Pulseaudio
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "/ {icon} {volume}%",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": "  {icon} {format_source}",
+    "format-muted": "  {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        " ",
+        " "
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "  Muted",
+    "scroll-step": 5
+  },
+  // Bluetooth
+  "bluetooth": {
+    "format-disabled": "",
+    "format-off": "",
+    "interval": 30,
+    "on-click": "blueman-manager",
+    "format-no-controller": ""
+  },
+  // Other
+  "user": {
+    "format": "{user}",
+    "interval": 60,
+    "icon": false
+  },
+  // Idle Inhibator
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "tooltip": true,
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    },
+    "on-click-right": "hyprlock"
+  },
+  "backlight": {
+    "format": "/ {icon}",
+    "tooltip-format": "{icon} {percent}%",
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ],
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "min-length": 6,
+    "on-click-right": "kitty -e watch -n 0.5 brightnessctl i"
+  }
+}

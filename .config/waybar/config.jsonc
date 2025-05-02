@@ -1,0 +1,28 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 0,
+  "spacing": 0,
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ],
+  "modules-left": [
+    "custom/appmenu",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "tray",
+    "cpu",
+    "memory",
+    "keyboard-state",
+    "pulseaudio",
+    "backlight",
+    "network",
+    "battery",
+    "clock",
+    "custom/power"
+  ]
+}

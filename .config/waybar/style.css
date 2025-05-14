@@ -1,6 +1,5 @@
-@import "mocha.css";
-@define-color surface0_t rgba(49, 50, 68, 0.8);
-@define-color surface2_t rgba(88, 91, 112, 0.8);
+@define-color green #a6e3a1;
+@define-color red #f38ba8;
 
 * {
   font-family: "Jetbrains Mono", monospace;
@@ -9,13 +8,11 @@
 }
 
 window#waybar {
-  background: transparent;
-  color: @text;
+  background: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 #window {
-  background: @surface0_t;
-  border-radius: 1rem;
   padding: 0rem 0.75rem;
   margin-left: 3px;
   margin-right: 3px;
@@ -26,29 +23,27 @@ window#waybar.empty #window {
 }
 
 #workspaces {
-  background-color: @surface0_t;
   border-radius: 1rem;
   font-weight: bold;
 }
 
 #workspaces button {
-  color: @lavender;
-  border-radius: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
   min-width: 2rem;
   transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
-  background-color: @surface2_t;
-  color: @sky;
-  border-radius: 1rem;
-  min-width: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+  min-width: 2rem;
   transition: all 0.3s ease-in-out;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
-  border-radius: 1rem;
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 3px;
 }
 
 #custom-appmenu,
@@ -63,9 +58,7 @@ window#waybar.empty #window {
 #battery,
 #clock,
 #tray {
-  background-color: @surface0_t;
-  margin-top: 3px;
-  margin-bottom: 3px;
+  margin: 0 3px;
 }
 
 #custom-appmenu {
@@ -75,45 +68,10 @@ window#waybar.empty #window {
   margin-right: 3px;
 }
 
-#cpu {
-  color: @pink;
-  border-radius: 1rem 0rem 0rem 1rem;
-  padding-left: 1rem;
+#tray {
+  padding: 0 1rem;
   margin-left: 3px;
-}
-
-#memory {
-  color: @pink;
-  border-radius: 0rem 1rem 1rem 0rem;
   margin-right: 3px;
-}
-
-#pulseaudio {
-  color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
-  padding-left: 1rem;
-  margin-left: 3px;
-}
-
-#pulseaudio.microphone {
-  color: @maroon;
-  padding-right: 1rem;
-}
-
-#backlight {
-  color: @yellow;
-}
-
-#battery {
-  padding-left: 1rem;
-}
-
-#network {
-  color: @rosewater;
-}
-
-#battery {
-  color: @green;
 }
 
 #battery.charging {
@@ -124,23 +82,8 @@ window#waybar.empty #window {
   color: @red;
 }
 
-#clock {
-  color: @blue;
-  border-radius: 0px 1rem 1rem 0px;
-  padding: 0 1rem;
-  margin-right: 3px;
-}
-
-#tray {
-  padding: 0 1rem;
-  border-radius: 1rem;
-  margin-left: 3px;
-  margin-right: 3px;
-}
-
 #custom-power {
-  border-radius: 1rem;
-  padding: 0rem 0.75rem;
+  padding: 0rem 0.5rem;
   margin-left: 3px;
   margin-right: 3px;
 }
